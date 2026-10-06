@@ -93,7 +93,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .container {
-    width: min(calc(100% - var(--edge-width) - var(--edge-width) - var(--edge-gap) - var(--edge-gap)), 1240px);
+    /* Leave the same clear space beside the handmade edge art. */
+    width: calc(100% - 2 * var(--edge-width) - 2 * var(--edge-gap));
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -118,8 +120,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     justify-content: space-between;
     gap: 24px;
     min-height: 148px;
-    margin-top: 62px;
-    padding: 0 40px;
+    margin-top: 48px;
+    padding: 0 24px;
     background: rgba(4, 27, 40, .96);
     border: 1px solid rgba(97, 155, 138, .65);
     border-radius: 12px;
@@ -133,17 +135,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .brand img {
     display: block;
-    width: 480px;
-    height: 240px;
+    width: 440px;
+    height: 220px;
     max-width: none;
     flex: none;
-    margin: -46px -18px -46px -62px;
-    transform: translateY(-32px);
+    margin: -36px -18px -36px -46px;
+    transform: translateY(-28px);
 }
 
 .brand span {
     color: var(--muted);
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.3;
     white-space: nowrap;
 }
@@ -151,7 +153,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .header nav {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 28px;
     font-weight: bold;
 }
 
@@ -186,43 +188,37 @@ h1, h2, h3, p {
 }
 
 main > section {
-    margin-top: 102px;
+    margin-top: 72px;
 }
 
 .section-heading {
     display: flex;
     align-items: center;
-    gap: 18px;
-    min-height: 96px;
+    gap: 16px;
+    min-height: 48px;
     margin-bottom: 24px;
-    padding: 0 16px;
-    background: rgba(3, 31, 45, .84);
-    border-radius: 7px;
 }
 
 .section-heading h2 {
     margin: 0;
     color: var(--gold);
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
-}
-
-.section-heading h2:first-child {
-    margin-left: 18px;
 }
 
 .heading-star {
     color: var(--gold);
-    font-size: 31px;
+    font-size: 24px;
     line-height: 1;
 }
 
 .line-art {
     display: block;
-    width: 224px;
-    height: 112px;
-    max-width: none;
-    margin-left: 2px;
+    width: 160px;
+    height: 32px;
+    flex: 0 1 160px;
+    min-width: 48px;
+    object-fit: cover;
 }
 
 .text-link, .section-more {
@@ -235,17 +231,17 @@ main > section {
 
 .section-more {
     margin-left: auto;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 /* Text links share the same small handmade arrow. */
 .text-link::after, .section-more::after {
     content: "";
     display: block;
-    width: 96px;
-    height: 96px;
+    width: 64px;
+    height: 64px;
     flex: none;
-    margin: -32px -8px -32px -10px;
+    margin: -20px -8px -20px -8px;
     background: url("images/pixel-art/Arrow_4_Small128x128.png") center / contain no-repeat;
     image-rendering: pixelated;
 }
@@ -262,21 +258,21 @@ main > section {
 .button {
     display: inline-flex;
     align-items: center;
-    width: 360px;
-    height: 86px;
-    max-width: none;
-    padding: 0 42px;
+    width: 300px;
+    height: 72px;
+    max-width: 100%;
+    padding: 0 35px;
     border: 0;
     background-color: transparent;
     background-image: url("images/pixel-art/Arrow_1 128x128.png"), url("images/pixel-art/Box_1_Narrow 256x128.png");
     background-repeat: no-repeat;
-    background-position: 205px -24px, 0 -47px;
-    background-size: 128px 128px, 360px 180px;
+    background-position: right 16px top -20px, center -39px;
+    background-size: 108px 108px, 100% 150px;
     image-rendering: pixelated;
     color: var(--white);
     cursor: pointer;
     font-family: "Press Start 2P", monospace;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1.3;
 }
 
@@ -291,8 +287,8 @@ main > section {
 /* Hero */
 .hero {
     display: grid;
-    grid-template-columns: 46% 54%;
-    min-height: 520px;
+    grid-template-columns: 45% 55%;
+    min-height: 460px;
     margin-top: 32px;
     overflow: hidden;
     background: rgba(3, 31, 45, .97);
@@ -301,13 +297,14 @@ main > section {
 }
 
 .hero-text {
-    padding: 58px 28px 58px 56px;
+    min-width: 0;
+    padding: 40px 32px;
     align-self: center;
 }
 
 .hero h1 {
-    margin-bottom: 28px;
-    font-size: clamp(19px, 1.72vw, 24px);
+    margin-bottom: 24px;
+    font-size: clamp(18px, 1.25vw, 22px);
     line-height: 1.5;
     letter-spacing: -.5px;
 }
@@ -319,14 +316,15 @@ main > section {
 
 .hero-text > p:not(.eyebrow) {
     max-width: 470px;
-    margin-bottom: 34px;
+    margin-bottom: 24px;
     color: var(--muted);
     font-size: 18px;
 }
 
 .hero-image {
     position: relative;
-    min-height: 520px;
+    min-width: 0;
+    min-height: 460px;
 }
 
 .hero-image > img {
@@ -341,54 +339,64 @@ main > section {
     position: absolute;
     right: 10px;
     bottom: 6px;
-    width: 176px;
-    height: 176px;
-    background: url("images/pixel-art/Box_3 128x128.png") center / 100% 100% no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 224px;
+    height: 224px;
+    /* Extend the blue panel under the painted border so there are no gaps. */
+    background:
+        url("images/pixel-art/Box_3 128x128.png") center / 100% 100% no-repeat,
+        linear-gradient(#031f2d, #031f2d) center / 84% 74% no-repeat;
     image-rendering: pixelated;
 }
 
-.hero-badge span {
-    position: absolute;
-    inset: 29px;
-    display: grid;
-    place-items: center;
-    background: rgba(3, 31, 45, .82);
-    color: var(--gold);
-    font-family: "Press Start 2P", monospace;
-    font-size: 12px;
-    line-height: 1.6;
-    text-align: center;
+.hero-badge img {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 190px;
+    height: auto;
+    max-width: none;
+    margin: -8px 0 0 -16px;
+    image-rendering: pixelated;
 }
 
-/* Featured games */
-.featured-games {
+/* The home page and archive use the same game cards. */
+.game-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
 }
 
 .game-card {
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    min-width: 0;
+    padding: 20px;
     background: rgba(3, 31, 45, .96);
     border: 1px solid rgba(97, 155, 138, .75);
     border-radius: 11px;
+    scroll-margin-top: 24px;
 }
 
 .game-card > img {
     display: block;
-    width: auto;
-    max-width: 100%;
-    height: 310px;
-    margin: 0 auto 27px;
+    width: 100%;
+    height: 350px;
+    margin-bottom: 24px;
     object-fit: contain;
 }
 
 .game-card h3 {
-    margin-bottom: 13px;
+    min-height: 54px;
+    margin-bottom: 12px;
     font-size: 20px;
-    line-height: 1.3;
+    line-height: 1.35;
+}
+
+.game-card p:last-child {
+    margin-bottom: 0;
 }
 
 .game-meta {
@@ -437,10 +445,12 @@ main > section {
 
 .system-card {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 320px;
-    padding: 199px 30px 70px;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-content: center;
+    column-gap: 24px;
+    min-height: 240px;
+    padding: 24px;
     background-repeat: no-repeat;
     background-position: 30px 16px;
     background-size: 175px 175px;
@@ -453,7 +463,6 @@ main > section {
 
 .system-card:hover {
     color: #082a3a;
-    transform: translateY(-3px);
 }
 
 .system-blue {
@@ -483,23 +492,23 @@ main > section {
 
 /* The console PNGs include transparent space around the artwork. */
 .system-art {
-    position: absolute;
-    top: 103.5px;
-    left: 117.5px;
+    display: block;
+    grid-row: span 2;
     width: 200px;
     height: auto;
     max-width: none;
-    transform: translate(-50%, -56%);
+    margin: -32px 0 12px -6px;
     image-rendering: pixelated;
 }
 
 .system-card h3 {
+    align-self: end;
     margin: 0;
     font-size: 18px;
 }
 
 .system-card p {
-    max-width: 130px;
+    align-self: start;
     margin: 3px 0 0;
     font-size: 10px;
     font-weight: bold;
@@ -519,38 +528,34 @@ main > section {
 /* Vault pick */
 .vault-pick {
     display: grid;
-    grid-template-columns: 59% 41%;
-    min-height: 390px;
-    overflow: hidden;
+    grid-template-columns: 180px minmax(0, 1fr) 28%;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
     background: rgba(3, 31, 45, .97);
     border: 1px solid var(--sea);
     border-radius: 11px;
 }
 
-.pick-content {
-    display: grid;
-    grid-template-columns: 190px 1fr;
-    align-items: center;
-    gap: 28px;
-    padding: 36px;
-}
-
 .pick-cover {
     display: block;
-    width: 190px;
-    height: 280px;
-    object-fit: contain;
+    width: 180px;
+    height: auto;
+}
+
+.pick-text {
+    min-width: 0;
 }
 
 .pick-text h3 {
     margin-bottom: 12px;
     font-family: "Press Start 2P", monospace;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.4;
 }
 
 .pick-text > p:last-of-type {
-    max-width: 280px;
+    max-width: 340px;
     margin-bottom: 12px;
     font-size: 14px;
 }
@@ -567,29 +572,18 @@ main > section {
 .pick-scene {
     display: block;
     width: 100%;
-    height: 100%;
-    min-height: 390px;
-    object-fit: cover;
+    height: auto;
     background: #082a3a;
 }
 
 /* Ordered top five */
 .top-list {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    counter-reset: rank;
-    border: 1px solid rgba(97, 155, 138, .7);
-    border-radius: 10px;
-    background: rgba(3, 31, 45, .94);
+    margin: 0;
+    padding-left: 32px;
 }
 
 .top-list li {
-    counter-increment: rank;
-    position: relative;
-    min-height: 65px;
-    padding-left: 66px;
+    padding: 16px 0 16px 8px;
     border-bottom: 1px solid rgba(97, 155, 138, .3);
 }
 
@@ -597,17 +591,7 @@ main > section {
     border-bottom: 0;
 }
 
-.top-list li::before {
-    content: counter(rank);
-    position: absolute;
-    top: 13px;
-    left: 17px;
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--gold);
-    border-radius: 5px;
+.top-list li::marker {
     color: var(--gold);
     font-family: "Press Start 2P", monospace;
     font-size: 12px;
@@ -615,15 +599,13 @@ main > section {
 
 .top-list a {
     display: grid;
-    grid-template-columns: 1fr 90px 64px;
+    grid-template-columns: minmax(0, 1fr) 70px 64px;
     align-items: center;
-    min-height: 64px;
-    gap: 12px;
-    padding: 0 22px 0 0;
+    gap: 16px;
 }
 
 .top-list strong {
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .top-list span {
@@ -647,13 +629,12 @@ main > section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 190px;
-    padding: 36px 64px;
-    background-color: rgba(3, 31, 45, .94);
+    min-height: 176px;
+    padding: 36px 48px;
     background-image: url("images/pixel-art/Box_1 256x128.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: min(360px, 100%) auto;
+    background-size: 100% 200px;
     image-rendering: pixelated;
 }
 
@@ -674,7 +655,7 @@ main > section {
 }
 
 /* Shared card backgrounds */
-.archive-grid article, .pixel-shelf article, .about-columns article, .media-grid article {
+.pixel-shelf article, .about-columns article, .media-grid article {
     background: rgba(3, 31, 45, .95);
     border: 1px solid rgba(97, 155, 138, .7);
     border-radius: 10px;
@@ -689,10 +670,10 @@ main > section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 32px;
     min-height: 300px;
     margin-top: 32px;
-    padding: 54px 64px;
+    padding: 36px 40px;
     background: rgba(3, 31, 45, .96);
     border: 1px solid var(--sea);
     border-radius: 11px;
@@ -701,7 +682,7 @@ main > section {
 .page-hero h1 {
     margin-bottom: 20px;
     color: var(--gold);
-    font-size: clamp(19px, 2vw, 24px);
+    font-size: clamp(19px, 2vw, 22px);
     line-height: 1.5;
 }
 
@@ -712,42 +693,28 @@ main > section {
     font-size: 17px;
 }
 
-.page-badge {
-    position: relative;
-    flex: none;
-    width: 160px;
-    height: 160px;
+.browse-text, .about-text {
+    flex: 1;
+    min-width: 0;
 }
 
-.page-badge img {
+.browse-art, .about-art {
     display: block;
-    width: 160px;
-    height: 160px;
-    max-width: none;
+    flex: none;
+    width: 300px;
+    height: auto;
+    image-rendering: pixelated;
 }
 
-.page-badge span {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold);
-    font-family: "Press Start 2P", monospace;
-    font-size: 21px;
-}
-
-.page-badge small {
-    margin-top: 8px;
-    font-size: 8px;
+.browse-art {
+    width: 320px;
 }
 
 .jump-links {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 26px;
+    margin-top: 24px;
 }
 
 .jump-links a {
@@ -763,38 +730,6 @@ main > section {
     color: var(--gold);
 }
 
-.archive-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
-}
-
-.archive-grid article {
-    min-height: 430px;
-    padding: 30px;
-    scroll-margin-top: 20px;
-}
-
-.archive-grid article > img {
-    display: block;
-    width: auto;
-    max-width: 100%;
-    height: 285px;
-    margin: 0 auto 24px;
-    object-fit: contain;
-}
-
-.archive-grid article h3 {
-    margin-bottom: 11px;
-    font-size: 19px;
-}
-
-.archive-grid article p:last-child {
-    margin-bottom: 0;
-    color: var(--muted);
-    font-size: 14px;
-}
-
 .section-intro {
     margin: -3px 0 22px;
     color: var(--muted);
@@ -803,11 +738,11 @@ main > section {
 .pixel-shelf {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    gap: 24px;
 }
 
 .pixel-shelf article {
-    padding: 17px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -827,7 +762,7 @@ main > section {
 .system-index {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 24px;
 }
 
 .system-index article {
@@ -898,7 +833,7 @@ tbody tr:last-child td {
 }
 
 .about-columns article, .media-grid article {
-    padding: 34px;
+    padding: 24px;
 }
 
 .about-columns h3, .media-grid h3 {
@@ -924,7 +859,7 @@ tbody tr:last-child td {
 .glossary {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: 24px;
     margin: 0;
 }
 
@@ -959,8 +894,7 @@ tbody tr:last-child td {
 }
 
 .form-section form {
-    max-width: 800px;
-    padding: 30px;
+    padding: 24px;
     background: rgba(3, 31, 45, .96);
     border: 1px solid rgba(97, 155, 138, .7);
     border-radius: 10px;
@@ -1004,7 +938,7 @@ textarea {
 }
 
 .credits {
-    margin-top: 70px;
+    margin-top: 72px;
     padding: 20px 24px;
     background: rgba(3, 31, 45, .93);
     border: 1px solid rgba(97, 155, 138, .5);
@@ -1028,7 +962,7 @@ textarea {
 
 /* Footer */
 .footer {
-    margin-top: 110px;
+    margin-top: 72px;
     background: rgba(3, 31, 45, .96);
     border-top: 1px solid var(--sea);
 }
@@ -1036,14 +970,14 @@ textarea {
 .footer-inner {
     display: flex;
     align-items: center;
-    gap: 25px;
-    min-height: 132px;
+    gap: 24px;
+    min-height: 120px;
 }
 
 .footer-brand img {
     display: block;
-    width: 320px;
-    height: 160px;
+    width: 240px;
+    height: auto;
     max-width: none;
 }
 
@@ -1059,7 +993,7 @@ textarea {
 
 .footer-inner nav {
     display: flex;
-    gap: 30px;
+    gap: 24px;
     margin-left: auto;
 }
 
@@ -1067,80 +1001,16 @@ textarea {
     font-size: 14px;
 }
 
-@media (max-width: 1640px) {
-    .header {
-        padding: 0 16px;
+/* Smaller desktops keep the chest clear of the traveler. */
+@media (max-width: 1400px) {
+    .hero-badge {
+        width: 192px;
+        height: 192px;
     }
 
-    .brand span {
-        display: none;
+    .hero-badge img {
+        width: 164px;
     }
-
-    .line-art {
-        width: 160px;
-        height: 80px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-text {
-        padding: 48px 40px 30px;
-    }
-
-    .hero-image {
-        height: 390px;
-        min-height: 0;
-    }
-
-    .featured-games {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-    }
-
-    .featured-games .game-card:last-child {
-        grid-column: 1 / -1;
-        width: 100%;
-        max-width: 460px;
-        justify-self: center;
-    }
-
-    .archive-grid {
-        gap: 18px;
-    }
-
-    .pixel-shelf {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .vault-pick {
-        grid-template-columns: 1fr;
-    }
-
-    .pick-scene {
-        height: 360px;
-        min-height: 0;
-    }
-
-    .why-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .why-list article {
-        width: 100%;
-        max-width: 400px;
-        justify-self: center;
-    }
-
-    .why-list article:last-child {
-        grid-column: 1 / -1;
-    }
-
-    .system-index {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
 }
 
 @media (max-width: 1150px) {
@@ -1148,6 +1018,66 @@ textarea {
         background-size: 384px 1536px;
     }
 
+    .brand span {
+        display: none;
+    }
+}
+
+/* Stack the hero and use two cards per row on tablets. */
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .hero-text {
+        padding: 36px;
+    }
+
+    .hero-image {
+        height: 360px;
+        min-height: 0;
+    }
+
+    .game-grid, .why-list, .pixel-shelf, .system-index {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .system-card {
+        grid-template-columns: 1fr;
+        padding-bottom: 52px;
+    }
+
+    .system-art {
+        grid-row: auto;
+    }
+
+    .page-hero {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        padding: 32px;
+    }
+
+    .browse-art, .about-art {
+        align-self: center;
+        width: 300px;
+        max-width: 100%;
+    }
+
+    .vault-pick {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .pick-scene {
+        grid-column: 1 / -1;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 900px) {
@@ -1155,15 +1085,15 @@ textarea {
         background-size: 256px 1024px;
     }
 
-}
-
-@media (max-width: 1100px) {
-    .archive-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .brand img {
+        width: 380px;
+        height: 190px;
+        margin-top: -21px;
+        margin-bottom: -21px;
     }
-
 }
 
+/* One column keeps the artwork and text comfortable on phones. */
 @media (max-width: 620px) {
     :root {
         --edge-width: 30px;
@@ -1173,7 +1103,8 @@ textarea {
     .header {
         display: block;
         min-height: 0;
-        padding: 0 12px 14px;
+        margin-top: 40px;
+        padding: 0 12px 16px;
         text-align: center;
     }
 
@@ -1191,11 +1122,11 @@ textarea {
 
     .header nav {
         justify-content: center;
-        gap: 30px;
+        gap: 24px;
     }
 
     .hero-text {
-        padding: 42px 27px 34px;
+        padding: 32px 24px;
     }
 
     .hero h1 {
@@ -1206,135 +1137,107 @@ textarea {
         height: 270px;
     }
 
-    .hero-badge {
-        width: 128px;
-        height: 128px;
+    .hero-image > img {
+        object-position: 75% center;
     }
 
-    .hero-badge span {
-        font-size: 10px;
+    .hero-badge {
+        width: 160px;
+        height: 160px;
+        right: 6px;
+    }
+
+    .hero-badge img {
+        width: 140px;
+        margin: -6px 0 0 -12px;
     }
 
     .button {
-        width: 286px;
-        height: 70px;
-        padding: 0 30px;
-        font-size: 10px;
-        background-position: 163px -20px, 0 -37px;
-        background-size: 105px 105px, 286px 143px;
+        width: 250px;
+        height: 62px;
+        padding: 0 22px;
+        font-size: 9px;
+        background-position: right 12px top -17px, center -33px;
+        background-size: 90px 90px, 100% 125px;
     }
 
     main > section {
-        margin-top: 74px;
+        margin-top: 64px;
     }
 
     .section-heading {
-        flex-wrap: wrap;
-        gap: 6px 10px;
-        margin-bottom: 22px;
+        gap: 12px;
+        min-height: 40px;
     }
 
     .section-heading h2 {
+        flex: 1;
+        min-width: 0;
         font-size: 13px;
     }
 
     .heading-star {
-        font-size: 24px;
-    }
-
-    .section-heading h2:first-child {
-        margin-left: 10px;
+        font-size: 20px;
     }
 
     .line-art {
-        width: 160px;
-        height: 80px;
-        margin-left: auto;
+        display: none;
     }
 
     .section-more {
-        width: 100%;
+        flex-basis: 100%;
         margin-left: 0;
     }
 
-    .featured-games, .archive-grid, .about-columns, .media-grid, .glossary, .why-list, .form-grid {
+    .game-grid, .about-columns, .media-grid, .glossary, .why-list, .form-grid, .system-list, .pixel-shelf, .system-index {
         grid-template-columns: 1fr;
     }
 
-    .featured-games .game-card:last-child {
-        grid-column: auto;
-        max-width: none;
-        justify-self: stretch;
-    }
-
-    .why-list article:last-child {
-        grid-column: auto;
-        max-width: none;
-    }
-
-    .pixel-shelf, .system-index {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .system-list {
-        grid-template-columns: 1fr;
-    }
-
-    .system-card p {
-        max-width: 120px;
+    .game-card {
+        padding: 18px;
     }
 
     .game-card > img {
-        height: 300px;
+        height: 330px;
     }
 
-    .pick-content {
+    .vault-pick {
         grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 24px;
+        gap: 20px;
+        padding: 20px;
     }
 
     .pick-cover {
-        width: 190px;
-        height: 260px;
+        width: 200px;
         margin: 0 auto;
     }
 
     .pick-scene {
+        grid-column: auto;
         height: auto;
-        min-height: 0;
-        aspect-ratio: 1400 / 788;
     }
 
     .pick-text h3 {
-        font-size: 16px;
-    }
-
-    .pick-text > p:last-of-type {
-        font-size: 13px;
+        font-size: 18px;
     }
 
     .top-list a {
-        grid-template-columns: 1fr 50px 40px;
-        gap: 5px;
-        padding-right: 8px;
-        font-size: 12px;
+        grid-template-columns: minmax(0, 1fr) 42px 40px;
+        gap: 8px;
+        font-size: 13px;
     }
 
     .top-list li {
-        padding-left: 51px;
-    }
-
-    .top-list li::before {
-        left: 10px;
+        padding-left: 4px;
     }
 
     .page-hero {
-        padding: 42px 28px;
+        min-height: 0;
+        padding: 28px 24px;
     }
 
-    .page-badge {
-        display: none;
+    .browse-art, .about-art {
+        width: 280px;
     }
 
     .form-grid .full {
@@ -1344,23 +1247,20 @@ textarea {
     .footer-inner {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0 15px;
-        padding-bottom: 22px;
+        gap: 0 16px;
+        padding-bottom: 24px;
         text-align: center;
     }
 
     .footer-brand img {
-        width: 300px;
-        height: 150px;
         max-width: 100%;
     }
 
     .footer-inner nav {
         justify-content: center;
         width: 100%;
-        margin: 15px 0 0;
+        margin: 16px 0 0;
     }
-
 }
 
 @media (max-width: 340px) {
@@ -1369,28 +1269,7 @@ textarea {
         --edge-gap: 2px;
     }
 
-    .button {
-        width: 250px;
-        height: 62px;
-        padding: 0 22px;
-        font-size: 9px;
-        background-position: 144px -17px, 0 -33px;
-        background-size: 90px 90px, 250px 125px;
+    .hero-text, .page-hero {
+        padding: 24px 20px;
     }
-
-    .pixel-shelf, .system-index {
-        grid-template-columns: 1fr;
-    }
-
-    .system-arrow {
-        right: -10px;
-        bottom: -25px;
-        width: 110px;
-        height: 110px;
-    }
-
-    .section-heading h2 {
-        font-size: 11px;
-    }
-
 }
