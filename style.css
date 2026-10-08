@@ -19,8 +19,18 @@
 body {
     padding-top: clamp(40px, calc(100vw - 580px), 48px);
     margin: 0;
-    background: var(--blue);
+    background: url("images/BackgroundLeftTop.png") left top repeat-y,
+        url("images/BackgroundRightTop.png") right top repeat-y var(--blue);
+    background-size: min(256px, var(--edge)) auto;
     font: 14px/1.5 Arial, sans-serif;
+}
+body::after {
+    content: "";
+    inset: 0;
+    background: url("images/BackgroundLeftBottom.png") left bottom no-repeat,
+        url("images/BackgroundRightBottom.png") right bottom no-repeat;
+    background-size: inherit;
+    pointer-events: none;
 }
 body, .button, input, select, textarea { color: #f8f5e9; }
 .container {
@@ -28,23 +38,13 @@ body, .button, input, select, textarea { color: #f8f5e9; }
     max-width: 1200px;
     margin: auto;
 }
-.edge-left, .edge-right {
-    inset: 0 auto 0 0;
-    width: var(--edge);
-    background: url("images/Background.png") left top / clamp(256px, calc(80vw - 536px), 512px) auto repeat-y;
-}
-.edge-right {
-    left: auto;
-    right: 0;
-    transform: scaleX(-1);
-}
 .header, main, .footer, body, .hero { position: relative; }
 img, video, audio {
     display: block;
     max-width: 100%;
     object-fit: cover;
 }
-.pixel-art { image-rendering: pixelated; }
+body, .pixel-art { image-rendering: pixelated; }
 h1, h2, h3, p, .game-card > img, .pixel-shelf article > img, .form-grid { margin: 0 0 16px; }
 h1, h2, .vault-pick h3 { font: bold 20px/1.5 var(--pixel); }
 h3 { font: bold 20px/1.35 Arial, sans-serif; }
@@ -56,7 +56,7 @@ a {
 }
 a:hover, .active { color: var(--gold); }
 .skip-link:not(:focus) { clip-path: inset(100%); }
-.edge-left, .edge-right, .hero-badge, .skip-link:not(:focus) { position: absolute; }
+body::after, .hero-badge, .skip-link:not(:focus) { position: absolute; }
 section, .glossary, .form-grid, .vault-pick {
     display: grid;
     gap: 24px;
@@ -253,6 +253,7 @@ form > p { margin: 0 0 12px; }
 .inner-page { padding-bottom: 10px; }
 /* Footer */
 .footer {
+    z-index: 1;
     border-width: 1px 0 0;
     border-color: var(--sea);
     border-radius: 0;
