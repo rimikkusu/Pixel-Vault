@@ -45,9 +45,7 @@
             <!-- About Pixel Vault -->
             <section class="info-grid" aria-labelledby="story-title">
                 <header class="section-title">
-                    <span aria-hidden="true">✦</span>
                     <h2 id="story-title">WHAT IS PIXEL VAULT?</h2>
-                    <img src="images/pixel-art/Line_1 128x64.png" width="160" height="32" alt="">
                 </header>
                 <article>
                     <h3>THE IDEA</h3>
@@ -81,9 +79,7 @@
             <!-- Glossary -->
             <section aria-labelledby="glossary-title">
                 <header class="section-title">
-                    <span aria-hidden="true">▣</span>
                     <h2 id="glossary-title">GAMING GLOSSARY</h2>
-                    <img src="images/pixel-art/Line_2 128x64.png" width="160" height="32" alt="">
                 </header>
                 <dl class="glossary">
                     <div>
@@ -108,9 +104,7 @@
             <!-- Media -->
             <section class="info-grid" aria-labelledby="media-title">
                 <header class="section-title">
-                    <span aria-hidden="true">♪</span>
                     <h2 id="media-title">SIGHTS &amp; SOUNDS</h2>
-                    <img src="images/pixel-art/Line_3 128x64.png" width="160" height="32" alt="">
                 </header>
                 <article>
                     <h3>GAMEPLAY CLIP</h3>
@@ -122,10 +116,10 @@
                 </article>
                 <article>
                     <h3>PIXEL VAULT THEME</h3>
-                    <p>Listen to the original chiptune made for this project.</p>
+                    <p>Electroman Adventures — Waterflame</p>
                     <audio controls preload="metadata">
-                        <source src="media/audio/pixel-vault-theme.wav" type="audio/wav">
-                        Your browser does not support audio playback.
+                        <source src="media/audio/Electroman Adventures.mp3" type="audio/mpeg">
+                        Your browser does not support audio.
                     </audio>
                 </article>
             </section>
@@ -133,16 +127,15 @@
             <!-- Suggestion form -->
             <section aria-labelledby="suggest-title">
                 <header class="section-title">
-                    <span aria-hidden="true">★</span>
                     <h2 id="suggest-title">SUGGEST A GAME</h2>
-                    <img src="images/pixel-art/Line_1 128x64.png" width="160" height="32" alt="">
                 </header>
                 <form action="about.html#form-note" method="get">
                     <p id="form-note">
                         This form demonstrates HTML fields only. Suggestions are not saved
                         or sent.
                     </p>
-                    <div class="form-grid">
+                    <fieldset class="form-grid">
+                        <legend>Game suggestion details</legend>
                         <label for="visitor-name">
                             Your name
                             <input id="visitor-name" name="name" type="text" autocomplete="name" required>
@@ -172,7 +165,7 @@
                             Why should we archive it?
                             <textarea id="game-reason" name="reason" rows="5" required></textarea>
                         </label>
-                    </div>
+                    </fieldset>
                     <button class="button" type="submit">SEND DEMO
                         <img src="images/pixel-art/Arrow_1 128x128.png" width="96" alt="">
                     </button>
